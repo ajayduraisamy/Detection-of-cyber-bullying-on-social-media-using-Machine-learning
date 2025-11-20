@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div id="dashboard" class="tab-content active">
+        
+        <div class="headeer">
+            <h1 class="text-center">AI-Powered Cyberbullying Detector</h1>
+            <p class="text-center">Analyze online messages and identify harmful or abusive content instantly</p>
+        </div>
+
+        
+        <div class="form-container">
+            <form method="POST">
+                {% if result %}
+                <div class="result-box">{{ result }}</div>
+                {% endif %}
+        
+                <form method="POST">
+                    <label><b>Enter text to analyze:</b></label><br>
+                    <textarea name="user_text" rows="5" class="form-control" required></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Predict</button>
+                </form>
+            </form>
+        </div>
+        
+    </div>
+<style>
+    
+    
+
+
+    .headeer {
+        background: linear-gradient(to right, #4b6cb7, #182848);
+        color: white;
+        padding: 25px;
+        text-align: center;
+    }
+
+    .headeer h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .headeer p {
+        font-size: 16px;
+        opacity: 0.9;
+    }
+
+    .form-container {
+        padding: 30px;
+    }
+
+    .result-box {
+        background-color: #e8f4fd;
+        border-left: 5px solid #2196F3;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: #0d47a1;
+    }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+
+    .form-group {
+        flex: 1 0 300px;
+        padding: 0 15px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: Navy;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+        outline: none;
+        border-color: #4b6cb7;
+        box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
+    }
+
+    button {
+        background: linear-gradient(to right, #4b6cb7, #182848);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: block;
+        margin: 30px auto 0;
+        width: 250px;
+    }
+
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+        font-size: 20px;
+        margin: 25px 0 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eee;
+        color: #182848;
+    }
+
+    @media (max-width: 768px) {
+        .form-group {
+            flex: 1 0 100%;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+    }
+</style>
+{% endblock %}
